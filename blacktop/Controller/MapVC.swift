@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MapVC: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    let authorizationStatus = CLLocationManager.authorizationStatus()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapView.delegate = self
+        locationManager.delegate = self
         
+        confirmAuthStatus()
     }
 
     @IBAction func profileBtnPressed(_ sender: Any) {
@@ -21,4 +31,18 @@ class MapVC: UIViewController {
     }
 
 
+}
+
+extension MapVC: MKMapViewDelegate {
+    
+}
+
+extension MapVC: CLLocationManagerDelegate {
+    func confirmAuthStatus() {
+        if authorizationStatus == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        } else {
+            return
+        }
+    }
 }

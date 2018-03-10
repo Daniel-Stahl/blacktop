@@ -34,7 +34,6 @@ class LoginVC: UIViewController {
         }
     }
     
-
     @IBAction func loginPressed(_ sender: Any) {
         if emailField.text != nil && passwordField.text != nil {
             AuthService.instance.loginUser(email: emailField.text!, password: passwordField.text!, loginComplete: { (success, loginError) in

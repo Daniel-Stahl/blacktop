@@ -21,14 +21,9 @@ class UserProfileVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func logoutBtnPressed(_ sender: Any) {
-        do {
-           try Auth.auth().signOut()
-            let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-            self.present(loginPage!, animated: true, completion: nil)
-        } catch {
-            print(error)
-        }
+    @IBAction func settingsBtnPressed(_ sender: Any) {
+        let editUserProfileVC = storyboard?.instantiateViewController(withIdentifier: "EditUserVC") as? EditUserVC
+        self.present(editUserProfileVC!, animated: true, completion: nil)
     }
     
 }

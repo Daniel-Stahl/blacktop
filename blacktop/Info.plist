@@ -39,5 +39,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Blacktop would like to show you cafes around you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Blacktop would like to show you cafes around you.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Blacktop would like to show you cafes around you.</string>
 </dict>
 </plist>
