@@ -34,4 +34,20 @@ class AuthService {
             loginComplete(true, nil)
         }
     }
+    
+    func registerCafe(email: String, password: String, cafeCreationComplete: @escaping (_ status: Bool,_ error: Error?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (cafe, error) in
+            guard let cafe = cafe else {
+                cafeCreationComplete(false, error)
+                return
+            }
+            
+            let cafeData = ["provider": cafe.providerID, "email": cafe.email]
+            DataService.instance.createDBCafe(uid: cafe.uid, userData: cafeData)
+            cafeCreationComplete(true, nil)
+        }
+    }
+    
+    
+    
 }

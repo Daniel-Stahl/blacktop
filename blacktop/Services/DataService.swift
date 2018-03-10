@@ -39,6 +39,9 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    func createDBCafe(uid: String, userData: Dictionary<String, Any>) {
+        REF_CAFES.child(uid).updateChildValues(userData)
+    }
     
     
     

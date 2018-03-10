@@ -12,14 +12,28 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var chooseAccount: UISegmentedControl!
     
-    
+    var chosenAccount: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.delegate = self
         passwordField.delegate = self
+        
     }
+    
+    @IBAction func chooseAccountSelected(_ sender: Any) {
+        switch chooseAccount.selectedSegmentIndex {
+        case 0:
+            chosenAccount = "user"
+        case 1:
+            chosenAccount = "cafe"
+        default:
+            break
+        }
+    }
+    
 
     @IBAction func loginPressed(_ sender: Any) {
         if emailField.text != nil && passwordField.text != nil {
@@ -34,7 +48,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signupPressed(_ sender: Any) {
-        if emailField.text != nil && passwordField.text != nil {
+        if emailField.text != nil && passwordField.text != nil && chosenAccount == "user" {
             AuthService.instance.registerUser(email: emailField.text!, password: passwordField.text!, userCreationComplete: { (success, registerError) in
                 if success {
                     AuthService.instance.loginUser(email: self.emailField.text!, password: self.passwordField.text!, loginComplete: { (success, nil) in
@@ -45,10 +59,26 @@ class LoginVC: UIViewController {
                     print(String(describing: registerError?.localizedDescription))
                 }
             })
+        } else if emailField.text != nil && passwordField.text != nil && chosenAccount == "cafe" {
+            AuthService.instance.registerCafe(email: emailField.text!, password: passwordField.text!, cafeCreationComplete: { (success, registerError) in
+                if success {
+                    AuthService.instance.loginUser(email: self.emailField.text!, password: self.passwordField.text!, loginComplete: { (success, nil) in
+                        print("Cafe signed up!")
+                        let cafeProfileSetup = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfileSetup")
+                        self.present(cafeProfileSetup!, animated: true, completion: nil)
+                    })
+                } else {
+                    print(String(describing: registerError?.localizedDescription))
+                }
+            })
         }
     }
 }
 
 extension LoginVC: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        return true
+    }
 }

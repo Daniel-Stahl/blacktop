@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		43BCB3282051C829002CA0BF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB3272051C829002CA0BF /* DataService.swift */; };
 		43BCB32C2051F142002CA0BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32B2051F142002CA0BF /* AuthService.swift */; };
+		43BCB32E2053527D002CA0BF /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32D2053527D002CA0BF /* MapVC.swift */; };
+		43BCB33020535290002CA0BF /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32F20535290002CA0BF /* UserProfileVC.swift */; };
+		43BCB332205354CD002CA0BF /* CafeProfileSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB331205354CD002CA0BF /* CafeProfileSetupVC.swift */; };
 		43F5BDFE2051C49A00870B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F5BDFD2051C49A00870B2D /* AppDelegate.swift */; };
 		43F5BE002051C49A00870B2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F5BDFF2051C49A00870B2D /* LoginVC.swift */; };
 		43F5BE032051C49A00870B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F5BE012051C49A00870B2D /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		43BCB3272051C829002CA0BF /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		43BCB32B2051F142002CA0BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		43BCB32D2053527D002CA0BF /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		43BCB32F20535290002CA0BF /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		43BCB331205354CD002CA0BF /* CafeProfileSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeProfileSetupVC.swift; sourceTree = "<group>"; };
 		43F5BDFA2051C49A00870B2D /* blacktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blacktop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F5BDFD2051C49A00870B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F5BDFF2051C49A00870B2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				43F5BDFF2051C49A00870B2D /* LoginVC.swift */,
+				43BCB32D2053527D002CA0BF /* MapVC.swift */,
+				43BCB32F20535290002CA0BF /* UserProfileVC.swift */,
+				43BCB331205354CD002CA0BF /* CafeProfileSetupVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,10 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BCB32E2053527D002CA0BF /* MapVC.swift in Sources */,
 				43BCB3282051C829002CA0BF /* DataService.swift in Sources */,
 				43BCB32C2051F142002CA0BF /* AuthService.swift in Sources */,
 				43F5BE002051C49A00870B2D /* LoginVC.swift in Sources */,
 				43F5BDFE2051C49A00870B2D /* AppDelegate.swift in Sources */,
+				43BCB332205354CD002CA0BF /* CafeProfileSetupVC.swift in Sources */,
+				43BCB33020535290002CA0BF /* UserProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
