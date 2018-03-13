@@ -7,29 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class CafeProfileSetupVC: UIViewController {
 
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var cafeName: UITextField!
+    @IBOutlet weak var cafeDescription: UITextView!
+    @IBOutlet weak var cafeAddress: UITextView!
+    @IBOutlet weak var cafeHours: UITextView!
+    @IBOutlet weak var website: UITextField!
+    @IBOutlet weak var facebook: UITextField!
+    @IBOutlet weak var twitter: UITextField!
+    @IBOutlet weak var instagram: UITextField!
+    @IBOutlet weak var saveBtn: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        saveBtn.bindToKeyboard()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func saveBtnPressed(_ sender: Any) {
+        DataService.instance.cafeProfile(uid: (Auth.auth().currentUser?.uid)! ,name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!) { (success) in
+            if success {
+                print("details added to database")
+            } else {
+                print("could not save")
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -43,6 +43,11 @@ class DataService {
         REF_CAFES.child(uid).updateChildValues(userData)
     }
     
+    func cafeProfile(uid: String, name: String, description: String, address: String, hours: String, website: String, facebook: String, twitter: String, instagram: String, profileComplete: @escaping (_ success: Bool) -> ()) {
+        REF_CAFES.child(uid).updateChildValues(["name": name, "description": description, "address": address, "hours": hours, "website": website, "facebook": facebook, "twitter": twitter, "instagram": instagram])
+        profileComplete(true)
+    }
+    
     
     
     
