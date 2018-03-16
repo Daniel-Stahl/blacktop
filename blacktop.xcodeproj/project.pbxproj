@@ -13,7 +13,6 @@
 		43BCB33020535290002CA0BF /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32F20535290002CA0BF /* UserProfileVC.swift */; };
 		43BCB332205354CD002CA0BF /* CafeProfileSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB331205354CD002CA0BF /* CafeProfileSetupVC.swift */; };
 		43BCB33420549A54002CA0BF /* EditUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB33320549A54002CA0BF /* EditUserVC.swift */; };
-		43D03CCA205896C400B3038A /* KeyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D03CC9205896C400B3038A /* KeyboardExt.swift */; };
 		43F5BDFE2051C49A00870B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F5BDFD2051C49A00870B2D /* AppDelegate.swift */; };
 		43F5BE002051C49A00870B2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F5BDFF2051C49A00870B2D /* LoginVC.swift */; };
 		43F5BE032051C49A00870B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F5BE012051C49A00870B2D /* Main.storyboard */; };
@@ -30,7 +29,6 @@
 		43BCB32F20535290002CA0BF /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		43BCB331205354CD002CA0BF /* CafeProfileSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeProfileSetupVC.swift; sourceTree = "<group>"; };
 		43BCB33320549A54002CA0BF /* EditUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserVC.swift; sourceTree = "<group>"; };
-		43D03CC9205896C400B3038A /* KeyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExt.swift; sourceTree = "<group>"; };
 		43F5BDFA2051C49A00870B2D /* blacktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blacktop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F5BDFD2051C49A00870B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F5BDFF2051C49A00870B2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -65,14 +63,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		43D03CC62058956100B3038A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				43D03CC9205896C400B3038A /* KeyboardExt.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		43F5BDF12051C49A00870B2D = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +84,6 @@
 		43F5BDFC2051C49A00870B2D /* blacktop */ = {
 			isa = PBXGroup;
 			children = (
-				43D03CC62058956100B3038A /* Extensions */,
 				43BCB3262051C817002CA0BF /* Services */,
 				43F5BE132051C4E800870B2D /* Utilities */,
 				43F5BE112051C4CD00870B2D /* Model */,
@@ -286,7 +275,6 @@
 			files = (
 				43BCB32E2053527D002CA0BF /* MapVC.swift in Sources */,
 				43BCB33420549A54002CA0BF /* EditUserVC.swift in Sources */,
-				43D03CCA205896C400B3038A /* KeyboardExt.swift in Sources */,
 				43BCB3282051C829002CA0BF /* DataService.swift in Sources */,
 				43BCB32C2051F142002CA0BF /* AuthService.swift in Sources */,
 				43F5BE002051C49A00870B2D /* LoginVC.swift in Sources */,

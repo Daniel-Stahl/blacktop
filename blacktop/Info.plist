@@ -45,5 +45,7 @@
 	<string>Blacktop would like to show you cafes around you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Blacktop would like to show you cafes around you.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Blacktop would like to access your camera to access your photos</string>
 </dict>
 </plist>

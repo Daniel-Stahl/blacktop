@@ -169,13 +169,13 @@
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="VwA-u2-PEB">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1170"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cafe_BG" translatesAutoresizingMaskIntoConstraints="NO" id="bOs-vB-fRI">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cafe_BG" translatesAutoresizingMaskIntoConstraints="NO" id="bOs-vB-fRI">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="350" id="QmU-Dx-GXJ"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="1SG-U8-2zT">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="1SG-U8-2zT">
                                                 <rect key="frame" x="130.5" y="300" width="113" height="113"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="113" id="0DL-w2-ZZS"/>
