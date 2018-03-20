@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 let DB_BASE = Database.database().reference()
+let DB_Storage = Storage.storage().reference()
 
 class DataService {
     static let instance = DataService()
@@ -18,6 +19,12 @@ class DataService {
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_CAFES = DB_BASE.child("cafes")
     private var _REF_ROASTERS = DB_BASE.child("roasters")
+    
+    private var _REF_STORAGE = DB_Storage.child("photos")
+    
+    var REF_STORAGE: StorageReference {
+        return _REF_STORAGE
+    }
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -47,7 +54,6 @@ class DataService {
         REF_CAFES.child(uid).updateChildValues(["name": name, "description": description, "address": address, "hours": hours, "website": website, "facebook": facebook, "twitter": twitter, "instagram": instagram])
         profileComplete(true)
     }
-    
     
     
     
