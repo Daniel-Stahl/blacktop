@@ -30,19 +30,25 @@ class MapVC: UIViewController {
     @IBAction func profileBtnPressed(_ sender: Any) {
 //        performSegue(withIdentifier: "toUserProfile", sender: nil)
         
+        DataService.instance.REF_CAFES.observeSingleEvent(of: .value) { (Snapshot) in
+            guard let cafeDict = Snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for data in cafeDict {
+                let account = data.childSnapshot(forPath: "account").value as! String
+                
+                if account == "business" {
+                    let toCafeProfile = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfile") as! CafeProfileVC
+                    self.present(toCafeProfile, animated: true, completion: nil)
+                } else if Auth.auth().currentUser == DataService.instance.REF_USERS.child("users") {
+                    self.performSegue(withIdentifier: "toUserProfile", sender: nil)
+                }
+                
+                
+            }
+            
+        }
         
-//        let accountRef = DataService.instance.REF_CAFES.child("account")
-//        accountRef.observeSingleEvent(of: .value) { (Snapshot) in
-//            let cafeDict = Snapshot.value as! [String : Any]
-//            let account = cafeDict["account"] as! String
-//
-//            if account == "business" {
-//                let toCafeProfile = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfile") as! CafeProfileVC
-//                self.present(toCafeProfile, animated: true, completion: nil)
-//            } else if Auth.auth().currentUser == DataService.instance.REF_USERS.child("users") {
-//                self.performSegue(withIdentifier: "toUserProfile", sender: nil)
-//            }
-//        }
+            
+        
         
         
         

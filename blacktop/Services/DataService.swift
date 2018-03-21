@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel Stahl. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
 
 let DB_BASE = Database.database().reference()
@@ -55,7 +55,7 @@ class DataService {
         profileComplete(true)
     }
     
-    
+
     
     
     
