@@ -42,7 +42,7 @@ class AuthService {
                 return
             }
             
-            let cafeData = ["provider": cafe.providerID, "email": cafe.email]
+            let cafeData = ["provider": cafe.providerID, "email": cafe.email, "account": "business"]
             DataService.instance.createDBCafe(uid: cafe.uid, userData: cafeData)
             cafeCreationComplete(true, nil)
         }

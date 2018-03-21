@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class MapVC: UIViewController {
 
@@ -27,7 +28,24 @@ class MapVC: UIViewController {
     }
 
     @IBAction func profileBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toUserProfile", sender: nil)
+//        performSegue(withIdentifier: "toUserProfile", sender: nil)
+        
+        
+//        let accountRef = DataService.instance.REF_CAFES.child("account")
+//        accountRef.observeSingleEvent(of: .value) { (Snapshot) in
+//            let cafeDict = Snapshot.value as! [String : Any]
+//            let account = cafeDict["account"] as! String
+//
+//            if account == "business" {
+//                let toCafeProfile = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfile") as! CafeProfileVC
+//                self.present(toCafeProfile, animated: true, completion: nil)
+//            } else if Auth.auth().currentUser == DataService.instance.REF_USERS.child("users") {
+//                self.performSegue(withIdentifier: "toUserProfile", sender: nil)
+//            }
+//        }
+        
+        
+        
     }
 
 

@@ -22,8 +22,8 @@ class UserProfileVC: UIViewController {
     }
     
     @IBAction func settingsBtnPressed(_ sender: Any) {
-        let editUserProfileVC = storyboard?.instantiateViewController(withIdentifier: "EditUserVC") as? EditUserVC
-        self.present(editUserProfileVC!, animated: true, completion: nil)
+        let editUserProfileVC = storyboard?.instantiateViewController(withIdentifier: "EditUserVC") as! EditUserVC
+        self.present(editUserProfileVC, animated: true, completion: nil)
     }
     
 }
