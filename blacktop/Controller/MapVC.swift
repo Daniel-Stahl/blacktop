@@ -28,32 +28,28 @@ class MapVC: UIViewController {
     }
 
     @IBAction func profileBtnPressed(_ sender: Any) {
-//        performSegue(withIdentifier: "toUserProfile", sender: nil)
-        
-        DataService.instance.REF_CAFES.observeSingleEvent(of: .value) { (Snapshot) in
-            guard let cafeDict = Snapshot.children.allObjects as? [DataSnapshot] else { return }
-            for data in cafeDict {
-                let account = data.childSnapshot(forPath: "account").value as! String
-                
-                if account == "business" {
-                    let toCafeProfile = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfile") as! CafeProfileVC
-                    self.present(toCafeProfile, animated: true, completion: nil)
-                } else if Auth.auth().currentUser == DataService.instance.REF_USERS.child("users") {
-                    self.performSegue(withIdentifier: "toUserProfile", sender: nil)
-                }
-                
-                
+        DataService.instance.REF_CAFES.child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (Snapshot) in
+            //Check if current user uid is in Cafes
+            if Snapshot.exists() {
+                let cafePage = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfileVC") as? CafeProfileVC
+                self.present(cafePage!, animated: true, completion: nil)
+            } else {
+                let userPage = self.storyboard?.instantiateViewController(withIdentifier: "userProfileVC") as? UserProfileVC
+                self.present(userPage!, animated: true, completion: nil)
             }
-            
         }
-        
-            
-        
-        
-        
-        
     }
 
+    @IBAction func signoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+            self.present(loginPage!, animated: true, completion: nil)
+        } catch {
+            print(error)
+        }
+    }
+    
 
 }
 

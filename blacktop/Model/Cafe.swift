@@ -12,7 +12,6 @@ import Firebase
 class Cafe {
     
     private var image: UIImage!
-    var uid: String!
     var name: String!
     var imageDownloadURL: String?
     var description: String!
@@ -23,9 +22,8 @@ class Cafe {
     var twitter: String!
     var instagram: String!
     
-    init(image: UIImage, uid: String ,name: String, description: String, address: String, hours: String, website: String, facebook: String, twitter: String, instagram: String) {
+    init(image: UIImage, name: String, description: String, address: String, hours: String, website: String, facebook: String, twitter: String, instagram: String) {
         self.image = image
-        self.uid = uid
         self.name = name
         self.description = description
         self.address = address
@@ -48,7 +46,6 @@ class Cafe {
                 
                 let cafeDictionary = [
                     "imageDownloadURL" : self.imageDownloadURL,
-                    "uid" : self.uid,
                     "name" : self.name,
                     "description" : self.description,
                     "address" : self.address,
@@ -59,7 +56,7 @@ class Cafe {
                     "instagram" : self.instagram
                     
                 ]
-                DataService.instance.REF_CAFES.child(self.uid).updateChildValues(cafeDictionary)
+                DataService.instance.REF_CAFES.child((Auth.auth().currentUser?.uid)!).updateChildValues(cafeDictionary)
             })
         }
     }

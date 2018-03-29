@@ -38,7 +38,7 @@ class CafeProfileSetupVC: UIViewController {
     
     @IBAction func saveBtnPressed(_ sender: Any) {
         
-        let cafeProfile = Cafe(image: takenBGImage, uid: (Auth.auth().currentUser?.uid)!, name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!)
+        let cafeProfile = Cafe(image: takenBGImage, name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!)
         cafeProfile.save()
         
         
