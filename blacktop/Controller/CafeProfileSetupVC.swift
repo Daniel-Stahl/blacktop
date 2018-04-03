@@ -22,7 +22,7 @@ class CafeProfileSetupVC: UIViewController {
     @IBOutlet weak var instagram: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
     
-    var takenBGImage: UIImage!
+    var takenBGImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +38,13 @@ class CafeProfileSetupVC: UIViewController {
     
     @IBAction func saveBtnPressed(_ sender: Any) {
         
-        let cafeProfile = Cafe(image: takenBGImage, name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!)
-        cafeProfile.save()
-        
-        
-        
-//        DataService.instance.cafeProfile(uid: (Auth.auth().currentUser?.uid)!,name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!) { (success) in
-//            if success {
-//                print("details added to database")
-//            } else {
-//                print("could not save")
-//            }
-//        }
+        if takenBGImage != nil {
+            let cafeProfile = Cafe(image: takenBGImage!, name: cafeName.text!, description: cafeDescription.text!, address: cafeAddress.text!, hours: cafeHours.text!, website: website.text!, facebook: facebook.text!, twitter: twitter.text!, instagram: instagram.text!)
+            cafeProfile.save()
+            
+            let toCafeProfile = storyboard?.instantiateViewController(withIdentifier: "cafeProfileVC") as! CafeProfileVC
+            present(toCafeProfile, animated: true, completion: nil)
+        }
     }
     
     func camera() {

@@ -11,16 +11,16 @@ import Firebase
 
 class Cafe {
     
-    private var image: UIImage!
-    var name: String!
+    private var image: UIImage
+    let name: String
     var imageDownloadURL: String?
-    var description: String!
-    var address: String!
-    var hours: String!
-    var website: String
-    var facebook: String!
-    var twitter: String!
-    var instagram: String!
+    let description: String
+    let address: String
+    let hours: String
+    let website: String
+    let facebook: String
+    let twitter: String
+    let instagram: String
     
     init(image: UIImage, name: String, description: String, address: String, hours: String, website: String, facebook: String, twitter: String, instagram: String) {
         self.image = image
@@ -35,14 +35,13 @@ class Cafe {
     }
     
     func save() {
-//        let cafeRef = DataService.instance.REF_CAFES.child("cafes")
         let cafeID = Auth.auth().currentUser?.uid
         
         if let imageData = UIImageJPEGRepresentation(self.image, 0.6) {
             let imageRef = DataService.instance.REF_STORAGE.child(cafeID!)
             
             imageRef.putData(imageData).observe(.success, handler: { (imageSnapshot) in
-                self.imageDownloadURL = imageSnapshot.metadata?.downloadURL()?.absoluteString
+                self.imageDownloadURL = (imageSnapshot.metadata?.downloadURL()?.absoluteString)!
                 
                 let cafeDictionary = [
                     "imageDownloadURL" : self.imageDownloadURL,
