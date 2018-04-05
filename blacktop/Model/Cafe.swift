@@ -11,7 +11,7 @@ import Firebase
 
 class Cafe {
     
-    private var image: UIImage
+    private var image: UIImage!
     let name: String
     var imageDownloadURL: String?
     let description: String

@@ -19,17 +19,19 @@ class MapVC: UIViewController {
     let authorizationStatus = CLLocationManager.authorizationStatus()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         locationManager.delegate = self
         
         confirmAuthStatus()
+        
+        cafePins()
     }
 
     @IBAction func profileBtnPressed(_ sender: Any) {
         DataService.instance.REF_CAFES.child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (Snapshot) in
-            //Check if current user uid is in Cafes
             if Snapshot.exists() {
                 let cafePage = self.storyboard?.instantiateViewController(withIdentifier: "cafeProfileVC") as? CafeProfileVC
                 self.present(cafePage!, animated: true, completion: nil)
@@ -39,18 +41,32 @@ class MapVC: UIViewController {
             }
         }
     }
-
-    @IBAction func signoutButtonPressed(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-            self.present(loginPage!, animated: true, completion: nil)
-        } catch {
-            print(error)
+    
+    func cafePins() {
+        DataService.instance.REF_CAFES.observe(.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for data in snapshot {
+                let address = data.childSnapshot(forPath: "address").value as? String
+//                print("\(address)")
+                let geoCoder = CLGeocoder()
+                geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
+                    let location = place?.first?.location
+                    
+                    let annotation = MKPointAnnotation()
+                    var pinDrop = [location]
+                    for location in pinDrop {
+                    annotation.coordinate = (location?.coordinate)!
+                    self.mapView.addAnnotation(annotation)
+//                    print("\(location)")
+                    }
+                })
+            }
         }
     }
     
-
+    
+    
+    
 }
 
 extension MapVC: MKMapViewDelegate {

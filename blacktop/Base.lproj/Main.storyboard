@@ -431,12 +431,21 @@
                                                     <action selector="backButtonPressed:" destination="evd-bs-jTU" eventType="touchUpInside" id="c79-OR-rS8"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Up-mn-zds">
+                                                <rect key="frame" x="300" y="28" width="67" height="34"/>
+                                                <state key="normal" title="Sign out"/>
+                                                <connections>
+                                                    <action selector="signoutButtonPressed:" destination="evd-bs-jTU" eventType="touchUpInside" id="aV5-iC-7qs"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1200" id="49Y-yw-N0c"/>
                                             <constraint firstAttribute="trailing" secondItem="GM2-WT-6zi" secondAttribute="trailing" id="4dn-Mw-rxw"/>
                                             <constraint firstItem="GM2-WT-6zi" firstAttribute="leading" secondItem="fxn-O0-dtT" secondAttribute="leading" id="GBJ-BU-kQw"/>
+                                            <constraint firstItem="5Up-mn-zds" firstAttribute="top" secondItem="fxn-O0-dtT" secondAttribute="top" constant="28" id="Gfr-Mq-XLL"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Up-mn-zds" secondAttribute="trailing" constant="8" id="LDX-yu-c2t"/>
                                             <constraint firstItem="1yf-py-2BS" firstAttribute="top" secondItem="fxn-O0-dtT" secondAttribute="top" constant="28" id="PxD-lf-G1V"/>
                                             <constraint firstItem="GM2-WT-6zi" firstAttribute="top" secondItem="fxn-O0-dtT" secondAttribute="top" id="SsN-Ky-r3x"/>
                                             <constraint firstItem="1yf-py-2BS" firstAttribute="leading" secondItem="fxn-O0-dtT" secondAttribute="leading" constant="8" id="VIi-YP-8dg"/>
@@ -499,24 +508,13 @@
                                     <action selector="profileBtnPressed:" destination="FAi-IU-ELP" eventType="touchUpInside" id="OJy-kp-BbN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3m-kS-k6t">
-                                <rect key="frame" x="16" y="20" width="57" height="30"/>
-                                <state key="normal" title="Sign out">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signoutButtonPressed:" destination="FAi-IU-ELP" eventType="touchUpInside" id="fev-3C-fjQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="top" secondItem="4aB-sF-vXN" secondAttribute="top" id="7dV-m7-l2i"/>
                             <constraint firstItem="4gT-yO-uCG" firstAttribute="top" secondItem="ZpT-Yt-0TR" secondAttribute="top" constant="8" id="Hne-ce-eia"/>
-                            <constraint firstItem="Y3m-kS-k6t" firstAttribute="top" secondItem="ZpT-Yt-0TR" secondAttribute="top" id="Q3f-6s-FNc"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="trailing" secondItem="ZpT-Yt-0TR" secondAttribute="trailing" id="faN-nr-FZr"/>
                             <constraint firstItem="ZpT-Yt-0TR" firstAttribute="trailing" secondItem="4gT-yO-uCG" secondAttribute="trailing" constant="16" id="oHk-N0-FSi"/>
-                            <constraint firstItem="Y3m-kS-k6t" firstAttribute="leading" secondItem="ZpT-Yt-0TR" secondAttribute="leading" constant="16" id="trF-Zn-E7r"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="bottom" secondItem="ZpT-Yt-0TR" secondAttribute="bottom" id="wbO-B6-zZw"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="leading" secondItem="ZpT-Yt-0TR" secondAttribute="leading" id="zq5-zw-YO0"/>
                         </constraints>

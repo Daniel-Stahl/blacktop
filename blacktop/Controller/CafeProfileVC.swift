@@ -20,9 +20,10 @@ class CafeProfileVC: UIViewController {
     @IBOutlet weak var cafeIG: UILabel!
     @IBOutlet weak var cafeTW: UILabel!
     
+    let currentUser = (Auth.auth().currentUser?.uid)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     
@@ -31,7 +32,7 @@ class CafeProfileVC: UIViewController {
     }
     
     func getCafeProfile() {
-        DataService.instance.REF_CAFES.child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (Snapshot) in
+        DataService.instance.REF_CAFES.child(currentUser).observeSingleEvent(of: .value) { (Snapshot) in
             if let data = Snapshot.value as? [String: Any] {
                 self.cafeName.text = data["name"] as? String
                 self.cafeAddress.text = data["address"] as? String
@@ -42,11 +43,31 @@ class CafeProfileVC: UIViewController {
                 self.cafeTW.text = data["tewitter"] as? String
             }
         }
+        
+        let downloadImageRef = DataService.instance.REF_STORAGE.child(currentUser)
+        
+        let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024) { (data, error) in
+            if let data = data {
+                let image = UIImage(data: data)
+                self.bgImage.image = image
+            }
+            print(error ?? "No error")
+        }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         let toMap = storyboard?.instantiateViewController(withIdentifier: "mapVC") as! MapVC
         present(toMap, animated: true, completion: nil)
+    }
+    
+    @IBAction func signoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let loginPage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+            self.present(loginPage!, animated: true, completion: nil)
+        } catch {
+            print(error)
+        }
     }
     
 
