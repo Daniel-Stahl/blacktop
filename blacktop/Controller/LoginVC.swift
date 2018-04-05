@@ -18,8 +18,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailField.delegate = self
-        passwordField.delegate = self
+
+        self.hideKeyboard()
         
     }
     
@@ -71,13 +71,5 @@ class LoginVC: UIViewController {
                 }
             })
         }
-    }
-}
-
-extension LoginVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        return true
     }
 }

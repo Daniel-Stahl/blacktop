@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43248A1F2076D5AB006B788D /* KeyboardDismissOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43248A1E2076D5AB006B788D /* KeyboardDismissOnTap.swift */; };
 		43BCB3282051C829002CA0BF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB3272051C829002CA0BF /* DataService.swift */; };
 		43BCB32C2051F142002CA0BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32B2051F142002CA0BF /* AuthService.swift */; };
 		43BCB32E2053527D002CA0BF /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCB32D2053527D002CA0BF /* MapVC.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43248A1E2076D5AB006B788D /* KeyboardDismissOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissOnTap.swift; sourceTree = "<group>"; };
 		43BCB3272051C829002CA0BF /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		43BCB32B2051F142002CA0BF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		43BCB32D2053527D002CA0BF /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		43F5BE102051C4C700870B2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				43248A1E2076D5AB006B788D /* KeyboardDismissOnTap.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				43F5BDFE2051C49A00870B2D /* AppDelegate.swift in Sources */,
 				43BCB332205354CD002CA0BF /* CafeProfileSetupVC.swift in Sources */,
 				43BCB33020535290002CA0BF /* UserProfileVC.swift in Sources */,
+				43248A1F2076D5AB006B788D /* KeyboardDismissOnTap.swift in Sources */,
 				43D03CCE2061BF9B00B3038A /* CafeProfileVC.swift in Sources */,
 				43D03CCC2060A5A500B3038A /* Cafe.swift in Sources */,
 			);

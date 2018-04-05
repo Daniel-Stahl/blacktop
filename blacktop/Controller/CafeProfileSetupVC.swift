@@ -27,7 +27,7 @@ class CafeProfileSetupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bgImageTap()
-        
+        self.hideKeyboard()
     }
     
     func bgImageTap() {

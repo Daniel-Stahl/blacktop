@@ -18,8 +18,6 @@ class MapVC: UIViewController {
     let locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -42,31 +40,28 @@ class MapVC: UIViewController {
         }
     }
     
+    //If someone doesnt put an address catch it.
     func cafePins() {
         DataService.instance.REF_CAFES.observe(.value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             for data in snapshot {
                 let address = data.childSnapshot(forPath: "address").value as? String
-//                print("\(address)")
+
                 let geoCoder = CLGeocoder()
-                geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
-                    let location = place?.first?.location
-                    
-                    let annotation = MKPointAnnotation()
-                    var pinDrop = [location]
-                    for location in pinDrop {
-                    annotation.coordinate = (location?.coordinate)!
-                    self.mapView.addAnnotation(annotation)
-//                    print("\(location)")
+                    geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
+                        let location = place?.first?.location
+                        
+                        let annotation = MKPointAnnotation()
+                        var pinDrop = [location]
+                        for location in pinDrop {
+                        annotation.coordinate = (location?.coordinate)!
+                        self.mapView.addAnnotation(annotation)
+
                     }
                 })
             }
         }
     }
-    
-    
-    
-    
 }
 
 extension MapVC: MKMapViewDelegate {
