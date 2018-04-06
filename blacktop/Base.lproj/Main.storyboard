@@ -495,10 +495,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxg-uG-cqW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbV-jr-g9b">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blacktop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7a-Vn-obp">
+                                        <rect key="frame" x="126.5" y="19.5" width="122" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Y7a-Vn-obp" firstAttribute="centerY" secondItem="CbV-jr-g9b" secondAttribute="centerY" id="65x-94-CMk"/>
+                                    <constraint firstAttribute="width" constant="375" id="JoC-8y-9Da"/>
+                                    <constraint firstItem="Y7a-Vn-obp" firstAttribute="centerX" secondItem="CbV-jr-g9b" secondAttribute="centerX" id="nlI-yA-KrY"/>
+                                    <constraint firstAttribute="height" constant="80" id="vRq-Vb-IBB"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gT-yO-uCG">
-                                <rect key="frame" x="329" y="28" width="30" height="30"/>
+                                <rect key="frame" x="329" y="25" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="MSo-bN-AIh"/>
                                     <constraint firstAttribute="height" constant="30" id="jte-7I-7pe"/>
@@ -508,20 +526,44 @@
                                     <action selector="profileBtnPressed:" destination="FAi-IU-ELP" eventType="touchUpInside" id="OJy-kp-BbN"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58x-SJ-Jox" userLabel="Pull Up View">
+                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="JIB-hW-LqU"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0g-xj-xhE">
+                                <rect key="frame" x="287" y="616" width="72" height="30"/>
+                                <state key="normal" title="Center Me"/>
+                                <connections>
+                                    <action selector="centerButtonPressed:" destination="FAi-IU-ELP" eventType="touchUpInside" id="QJG-hW-pJl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4gT-yO-uCG" firstAttribute="centerY" secondItem="Y7a-Vn-obp" secondAttribute="centerY" id="2wx-Ek-uhO"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="top" secondItem="4aB-sF-vXN" secondAttribute="top" id="7dV-m7-l2i"/>
-                            <constraint firstItem="4gT-yO-uCG" firstAttribute="top" secondItem="ZpT-Yt-0TR" secondAttribute="top" constant="8" id="Hne-ce-eia"/>
+                            <constraint firstItem="58x-SJ-Jox" firstAttribute="top" secondItem="l0g-xj-xhE" secondAttribute="bottom" constant="20" id="DZH-U6-27X"/>
+                            <constraint firstItem="CbV-jr-g9b" firstAttribute="trailing" secondItem="ZpT-Yt-0TR" secondAttribute="trailing" id="JGA-zM-i4q"/>
+                            <constraint firstItem="CbV-jr-g9b" firstAttribute="leading" secondItem="ZpT-Yt-0TR" secondAttribute="leading" id="Oyl-Jq-IZY"/>
+                            <constraint firstItem="58x-SJ-Jox" firstAttribute="top" secondItem="Oxg-uG-cqW" secondAttribute="bottom" id="TwQ-Ui-n1p"/>
+                            <constraint firstItem="58x-SJ-Jox" firstAttribute="trailing" secondItem="ZpT-Yt-0TR" secondAttribute="trailing" id="VvA-Bu-hic"/>
+                            <constraint firstItem="ZpT-Yt-0TR" firstAttribute="trailing" secondItem="l0g-xj-xhE" secondAttribute="trailing" constant="16" id="Zr2-4r-GGD"/>
+                            <constraint firstItem="58x-SJ-Jox" firstAttribute="leading" secondItem="ZpT-Yt-0TR" secondAttribute="leading" id="fN8-II-Eko"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="trailing" secondItem="ZpT-Yt-0TR" secondAttribute="trailing" id="faN-nr-FZr"/>
+                            <constraint firstItem="CbV-jr-g9b" firstAttribute="top" secondItem="4aB-sF-vXN" secondAttribute="top" id="gAY-XL-3Ju"/>
+                            <constraint firstItem="58x-SJ-Jox" firstAttribute="bottom" secondItem="ZpT-Yt-0TR" secondAttribute="bottom" id="mUF-2y-bLE"/>
                             <constraint firstItem="ZpT-Yt-0TR" firstAttribute="trailing" secondItem="4gT-yO-uCG" secondAttribute="trailing" constant="16" id="oHk-N0-FSi"/>
-                            <constraint firstItem="Oxg-uG-cqW" firstAttribute="bottom" secondItem="ZpT-Yt-0TR" secondAttribute="bottom" id="wbO-B6-zZw"/>
                             <constraint firstItem="Oxg-uG-cqW" firstAttribute="leading" secondItem="ZpT-Yt-0TR" secondAttribute="leading" id="zq5-zw-YO0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZpT-Yt-0TR"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Oxg-uG-cqW" id="xTs-pl-Bxt"/>
+                        <outlet property="mapViewBottomConstraint" destination="TwQ-Ui-n1p" id="ers-no-yF6"/>
+                        <outlet property="pullUpView" destination="58x-SJ-Jox" id="j9b-5Q-7Eh"/>
                         <segue destination="t09-9c-bh8" kind="show" identifier="toUserProfile" id="1Sv-2w-cmZ"/>
                     </connections>
                 </viewController>
