@@ -28,15 +28,15 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         //centerMapOnUserLocation()
         confirmAuthStatus()
         
-        touchPin()
+        //touchPin()
         cafePins()
     }
     
-    func touchPin() {
-        let touch = UITapGestureRecognizer(target: self, action: #selector(cafePins))
-        touch.delegate = self
-        mapView.addGestureRecognizer(touch)
-    }
+//    func touchPin() {
+//        let touch = UITapGestureRecognizer(target: self, action: #selector(cafePins))
+//        touch.delegate = self
+//        mapView.addGestureRecognizer(touch)
+//    }
 
     @IBAction func profileBtnPressed(_ sender: Any) {
         DataService.instance.REF_CAFES.child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value) { (Snapshot) in
@@ -49,35 +49,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    
-    
-    //If someone doesnt put an address catch it.
-    @objc func cafePins() {
-        DataService.instance.REF_CAFES.observe(.value) { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
-            for data in snapshot {
-                let address = data.childSnapshot(forPath: "address").value as? String
-
-                let geoCoder = CLGeocoder()
-                
-                geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
-                    let location = place?.first?.location
-                    let annotation = MKPointAnnotation()
-                    var pinDrop = [location]
-                    for location in pinDrop {
-                    annotation.coordinate = (location?.coordinate)!
-                    self.mapView.addAnnotation(annotation)
-                        
-                    }
-                    let span = MKCoordinateSpanMake(0.5, 0.5)
-                    let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
-                        self.mapView.setRegion(region, animated: true)
-                })
-            }
-        }
-    }
-    
-    
     
     func annimateViewUp() {
         mapViewBottomConstraint.constant = 300
@@ -100,7 +71,38 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
 }
 
 extension MapVC: MKMapViewDelegate {
+    //If someone doesnt put an address catch it.
+    func cafePins() {
+        DataService.instance.REF_CAFES.observe(.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for data in snapshot {
+                let address = data.childSnapshot(forPath: "address").value as? String
+                
+                let geoCoder = CLGeocoder()
+                
+                geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
+                    let location = place?.first?.location
+                    let annotation = MKPointAnnotation()
+                    let annotaionView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+                    var pinDrop = [location]
+                    for location in pinDrop {
+                        annotation.coordinate = (location?.coordinate)!
+                        annotation.title = "cafe"
+                        self.mapView.addAnnotation(annotation)
+                    }
+                    self.mapView(self.mapView, didSelect: annotaionView)
+                })
+            }
+        }
+    }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let pinToZoom = view.annotation
+        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let region = MKCoordinateRegion(center: (pinToZoom?.coordinate)!, span: span)
+        self.mapView.setRegion(region, animated: true)
+        annimateViewUp()
+    }
 }
 
 extension MapVC: CLLocationManagerDelegate {
