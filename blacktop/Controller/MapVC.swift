@@ -57,6 +57,13 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func annimateViewDown() {
+        mapViewBottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     @IBAction func centerButtonPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             centerMapOnUserLocation()
@@ -83,26 +90,32 @@ extension MapVC: MKMapViewDelegate {
                 geoCoder.geocodeAddressString(address!, completionHandler: { (place, error) in
                     let location = place?.first?.location
                     let annotation = MKPointAnnotation()
-                    let annotaionView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+                    //let annotaionView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
                     var pinDrop = [location]
                     for location in pinDrop {
                         annotation.coordinate = (location?.coordinate)!
                         annotation.title = "cafe"
                         self.mapView.addAnnotation(annotation)
                     }
-                    self.mapView(self.mapView, didSelect: annotaionView)
+                    
+                    //self.mapView(self.mapView, didSelect: annotaionView)
                 })
             }
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        annimateViewUp()
+        
         let pinToZoom = view.annotation
-        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let span = MKCoordinateSpanMake(0.2, 0.2)
         let region = MKCoordinateRegion(center: (pinToZoom?.coordinate)!, span: span)
         self.mapView.setRegion(region, animated: true)
-        annimateViewUp()
     }
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        annimateViewDown()
+    }
+    
 }
 
 extension MapVC: CLLocationManagerDelegate {
